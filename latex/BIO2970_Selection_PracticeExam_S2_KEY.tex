@@ -1,0 +1,321 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{needspace}
+\usepackage{array}
+\usepackage[margin=1in,top=0.9in,bottom=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{tikz}
+\usepackage[hidelinks]{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small BIO 2970 --- Selection Practice Exam S2 Key}
+\rhead{\small Answer Key}
+\cfoot{\small\thepage\ of \pageref*{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{14pt}
+
+% answer text, for KEY documents only
+\newcommand{\keyans}[1]{\par\medskip\noindent\textit{Answer.}\ #1\par\medskip}
+\newcommand{\work}[1]{\par\vspace{#1}}
+\newcommand{\opt}[1]{\makebox[1.9em][l]{(#1)}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\setlist[enumerate,1]{leftmargin=2em,labelsep=0.6em}
+\hyphenpenalty=1000
+\relpenalty=10000
+\binoppenalty=10000
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries Natural Selection --- Practice Exam S2 \textit{Answer Key}}\\[5pt]
+  {\large Level 2 \quad\textbullet\quad Harder and multi-step}\\[6pt]
+  BIO 2970 \quad\textbullet\quad Fitness and Selection, Lectures 23 and 24 \quad\textbullet\quad Fall 2026\\[3pt]
+  \rule{\textwidth}{0.8pt}\\[3pt]
+  {\small Every answer is explained, including why the tempting wrong choices fail. Grade the answer sheet with the grid below, then read the explanations for anything you missed.}
+\end{center}
+\vspace{0.4em}
+
+\begin{center}\small\setlength{\tabcolsep}{6.2pt}\begin{tabular}{lcccccccccccc}
+\toprule
+Question & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+\midrule
+Answer & \textbf{C} & \textbf{A} & \textbf{D} & \textbf{B} & \textbf{B} & \textbf{D} & \textbf{A} & \textbf{C} & \textbf{D} & \textbf{C} & \textbf{B} & \textbf{A} \\
+\bottomrule\end{tabular}\end{center}
+\begin{center}\small\setlength{\tabcolsep}{6.2pt}\begin{tabular}{lcccccccccccc}
+\toprule
+Question & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 & 23 & 24 \\
+\midrule
+Answer & \textbf{C} & \textbf{A} & \textbf{D} & \textbf{B} & \textbf{B} & \textbf{D} & \textbf{A} & \textbf{C} & \textbf{D} & \textbf{C} & \textbf{B} & \textbf{A} \\
+\bottomrule\end{tabular}\end{center}
+\begin{center}\small\begin{tabular}{lll}\toprule Topic & Questions & Your misses\\\midrule
+Fitness, \(w\), \(W\) and \(s\) & 24 & \\
+General equation and mean fitness & 1, 2, 3, 5, 22 & \\
+Counts or Hardy-Weinberg & 4, 21 & \\
+Average excess & 6, 7 & \\
+Types of selection & 16, 17 & \\
+Special models, \(p\) and \(q\) & 8, 9, 10, 11 & \\
+Heterozygote advantage and \(\hat{q}\) & 12, 13, 14 & \\
+Heterozygote disadvantage and stability & 15 & \\
+Human cases and Darwin & 18, 19, 20 & \\
+Drift (Deme lab) & 23 & \\
+\bottomrule\end{tabular}\end{center}
+\vspace{0.6em}
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=2em, itemsep=1.4em]
+\needspace{14\baselineskip}
+\item 100 zygotes are 40 AA, 40 Aa and 20 aa. Survivors to breeding are 30 AA, 24 Aa and 6 aa, and all survivors breed equally. What is \(\Delta q\) for a?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: General equation and mean fitness}
+\par\smallskip\noindent\begin{tabularx}{\linewidth}{@{}YYYY@{}}
+\makebox[1.9em][l]{(A)}\(-\)0.083 & \makebox[1.9em][l]{(B)}+0.100 & \makebox[1.9em][l]{\textbf{(C)}}\textbf{\(-\)0.100}\ \(\checkmark\) & \makebox[1.9em][l]{(D)}\(-\)0.300 \\
+\end{tabularx}
+\keyans{Count alleles. Before, a copies are 40 + 2(20) = 80 of 200, \(q\) = 0.40. Among the 60 survivors, a copies are 24 + 2(6) = 36 of 120, \(q'\) = 0.30. \(\Delta q\) = \(-\)0.100. The \(-\)0.083 wrongly converts to Hardy-Weinberg frequencies before selecting. The \(-\)0.300 subtracts the wrong things.}
+\needspace{14\baselineskip}
+\item In that population, what is \(\overline{W}\) and what does it mean physically?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: General equation and mean fitness}
+\par\smallskip
+\begin{enumerate}[label={}, leftmargin=2.4em, labelwidth=0pt, itemsep=2pt, topsep=0pt]
+\item \hspace*{-2.4em}\makebox[2.4em][l]{\textbf{(A)}}\textbf{0.60, the fraction of zygotes that survived}\ \(\checkmark\)
+\item \hspace*{-2.4em}\makebox[2.4em][l]{(B)}0.60, the frequency of A
+\item \hspace*{-2.4em}\makebox[2.4em][l]{(C)}0.55, the average of the three survivorships
+\item \hspace*{-2.4em}\makebox[2.4em][l]{(D)}1.00, because survivors all breed
+\end{enumerate}
+\keyans{Survivorships are 0.75, 0.60 and 0.30. \(\overline{W}\) = 0.4(0.75) + 0.4(0.60) + 0.2(0.30) = 0.60, which is 60 survivors out of 100. With survival as fitness, mean fitness is just the surviving fraction.}
+\needspace{14\baselineskip}
+\item Hardy-Weinberg, \(q\) = 0.5. Viability is 0.9, 0.8 and 0.5 and fecundity is 2, 3 and 4 for AA, Aa and aa. What is \(q\) after selection?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: General equation and mean fitness}
+\par\smallskip\noindent\begin{tabularx}{\linewidth}{@{}YYYY@{}}
+\makebox[1.9em][l]{(A)}0.433 & \makebox[1.9em][l]{(B)}0.583 & \makebox[1.9em][l]{(C)}0.500 & \makebox[1.9em][l]{\textbf{(D)}}\textbf{0.512}\ \(\checkmark\) \\
+\end{tabularx}
+\keyans{Fitness is viability times fecundity, 1.8, 2.4 and 2.0. \(\overline{W}\) = 0.25(1.8) + 0.5(2.4) + 0.25(2.0) = 2.15. \(q'\) = [0.25(2.4) + 0.25(2.0)]/2.15 = 1.10/2.15 = 0.512. Using survival only gives 0.433 and fecundity only gives 0.583. The two components pull in opposite directions.}
+\needspace{14\baselineskip}
+\item Hardy-Weinberg, \(q\) = 0.4, \(W\) = 0.9, 1 and 0.6 for AA, Aa and aa. What is the Aa frequency among the survivors, right after selection?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: Counts or Hardy-Weinberg}
+\par\smallskip\noindent\begin{tabularx}{\linewidth}{@{}YYYY@{}}
+\makebox[1.9em][l]{(A)}0.468 & \makebox[1.9em][l]{\textbf{(B)}}\textbf{0.533}\ \(\checkmark\) & \makebox[1.9em][l]{(C)}0.480 & \makebox[1.9em][l]{(D)}0.267 \\
+\end{tabularx}
+\keyans{\(\overline{W}\) = 0.36(0.9) + 0.48(1) + 0.16(0.6) = 0.900. Aa after = 0.48 \(\times\) 1/0.900 = 0.533. The 0.468 is \(2p'q'\) with the new \(q'\) = 0.373, which is wrong because survivors are not a random pairing of alleles. The 0.267 drops the 2 from \(2pq\).}
+\needspace{14\baselineskip}
+\item Same population. What is the mean fitness of the next generation, after the survivors mate at random?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: General equation and mean fitness}
+\par\smallskip\noindent\begin{tabularx}{\linewidth}{@{}YYYY@{}}
+\makebox[1.9em][l]{(A)}0.900 & \makebox[1.9em][l]{\textbf{(B)}}\textbf{0.905}\ \(\checkmark\) & \makebox[1.9em][l]{(C)}0.921 & \makebox[1.9em][l]{(D)}1.000 \\
+\end{tabularx}
+\keyans{\(q'\) = (0.24 + 0.096)/0.9 = 0.373. Random mating restores Hardy-Weinberg at \(q'\), so \(p'^{2}\) = 0.393, \(2p'q'\) = 0.468 and \(q'^{2}\) = 0.139. \(\overline{W}\) = 0.393(0.9) + 0.468(1) + 0.139(0.6) = 0.905. It rose from 0.900. The 0.921 is the average fitness of the survivors themselves, not of the next generation.}
+\needspace{14\baselineskip}
+\item Same population, \(q\) = 0.4, \(\overline{W}\) = 0.900. Using the average excess of A, what is \(\Delta p\)?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: Average excess}
+\par\smallskip\noindent\begin{tabularx}{\linewidth}{@{}YYYY@{}}
+\makebox[1.9em][l]{(A)}\(-\)0.027 & \makebox[1.9em][l]{(B)}+0.040 & \makebox[1.9em][l]{(C)}+0.018 & \makebox[1.9em][l]{\textbf{(D)}}\textbf{+0.027}\ \(\checkmark\) \\
+\end{tabularx}
+\keyans{An A copy sits with A (probability 0.6, fitness 0.9) or with a (probability 0.4, fitness 1). \(\alpha_{A}\) = 0.54 + 0.40 \(-\) 0.90 = +0.040. \(\Delta p\) = (\(p\)/\(\overline{W}\))\(\alpha_{A}\) = (0.6/0.9)(0.040) = +0.027. It is exactly \(- \Delta q\). The 0.040 forgets the \(p\)/\(\overline{W}\) factor, and 0.018 multiplies by \(q\)/\(\overline{W}\) instead of \(p\)/\(\overline{W}\).}
+\needspace{14\baselineskip}
+\item Can an allele that kills every homozygote have a positive average excess?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: Average excess}
+\par\smallskip
+\begin{enumerate}[label={}, leftmargin=2.4em, labelwidth=0pt, itemsep=2pt, topsep=0pt]
+\item \hspace*{-2.4em}\makebox[2.4em][l]{\textbf{(A)}}\textbf{Yes, if it is rare and the heterozygote is fitter than the population average}\ \(\checkmark\)
+\item \hspace*{-2.4em}\makebox[2.4em][l]{(B)}No, a lethal allele always has negative average excess
+\item \hspace*{-2.4em}\makebox[2.4em][l]{(C)}Only if it is dominant
+\item \hspace*{-2.4em}\makebox[2.4em][l]{(D)}Only if the population is not in Hardy-Weinberg
+\end{enumerate}
+\keyans{Average excess depends on where the allele's copies usually sit. A rare HbS copy is almost always in a heterozygote, the fittest genotype where malaria is common.}
+\needspace{14\baselineskip}
+\item Absolute fitnesses are 2.4, 1.6 and 1.6 for BB, Bb and bb. Which model applies, and which allele is \(q\)?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: Special models, \(p\) and \(q\)}
+\par\smallskip
+\begin{enumerate}[label={}, leftmargin=2.4em, labelwidth=0pt, itemsep=2pt, topsep=0pt]
+\item \hspace*{-2.4em}\makebox[2.4em][l]{(A)}Selection against the recessive, \(q\) = b
+\item \hspace*{-2.4em}\makebox[2.4em][l]{(B)}Selection against the dominant, \(q\) = B
+\item \hspace*{-2.4em}\makebox[2.4em][l]{\textbf{(C)}}\textbf{Selection against the dominant, \(q\) = b}\ \(\checkmark\)
+\item \hspace*{-2.4em}\makebox[2.4em][l]{(D)}Selection against the recessive, \(q\) = B
+\end{enumerate}
+\keyans{Relative fitnesses are 1, 0.67 and 0.67. The heterozygote shares the low fitness with bb, so one copy of b is enough to be hurt. b is selected against and acts dominant for fitness, whatever its letter case.}
+\needspace{14\baselineskip}
+\item Selection against the recessive with \(s\) = 0.6 and \(q\) = 0.5. What is \(\Delta q\)?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: Special models, \(p\) and \(q\)}
+\par\smallskip\noindent\begin{tabularx}{\linewidth}{@{}YYYY@{}}
+\makebox[1.9em][l]{(A)}\(-\)0.075 & \makebox[1.9em][l]{(B)}\(-\)0.136 & \makebox[1.9em][l]{(C)}\(-\)0.150 & \makebox[1.9em][l]{\textbf{(D)}}\textbf{\(-\)0.088}\ \(\checkmark\) \\
+\end{tabularx}
+\keyans{Top, \(-\)spq\(^2\) = \(-\)0.6 \(\times\) 0.5 \(\times\) 0.25 = \(-\)0.075. Bottom, 1 \(-\) sq\(^2\) = 1 \(-\) 0.15 = 0.85. \(\Delta q\) = \(-\)0.088. The \(-\)0.075 forgets the bottom, and \(-\)0.136 uses the dominant formula.}
+\needspace{14\baselineskip}
+\item A harmful allele is at \(q\) = 0.02 with \(s\) = 0.5. Roughly how many times faster is it removed if it is dominant than if it is recessive?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: Special models, \(p\) and \(q\)}
+\par\smallskip\noindent\begin{tabularx}{\linewidth}{@{}YY@{}}
+\makebox[1.9em][l]{(A)}About 2 times & \makebox[1.9em][l]{(B)}About the same \\[3pt]
+\makebox[1.9em][l]{\textbf{(C)}}\textbf{About 50 times}\ \(\checkmark\) & \makebox[1.9em][l]{(D)}About 2{,}500 times \\
+\end{tabularx}
+\keyans{Recessive, \(\Delta q\) = \(-\)0.5 \(\times\) 0.98 \(\times\) 0.0004/0.9998 = \(-\)0.000196. Dominant, \(\Delta q\) = \(-\)0.5 \(\times\) 0.9604 \(\times\) 0.02/0.9802 = \(-\)0.0098. The ratio is about 50, roughly 1/\(q\), because the recessive formula has \(q^2\) where the dominant one has \(q\).}
+\needspace{14\baselineskip}
+\item A lethal recessive (\(s\) = 1) has \(q'\) = \(q\)/(1 + \(q\)) each generation, so 1/\(q\) rises by exactly 1 per generation. How many generations to go from \(q\) = 0.02 to 0.01?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: Special models, \(p\) and \(q\)}
+\par\smallskip\noindent\begin{tabularx}{\linewidth}{@{}YYYY@{}}
+\makebox[1.9em][l]{(A)}1 & \makebox[1.9em][l]{\textbf{(B)}}\textbf{50}\ \(\checkmark\) & \makebox[1.9em][l]{(C)}100 & \makebox[1.9em][l]{(D)}25 \\
+\end{tabularx}
+\keyans{1/\(q\) goes from 50 to 100, an increase of 50, at 1 per generation. That slowness is the hiding of rare recessives in carriers.}
+\needspace{14\baselineskip}
+\item Relative fitnesses are 0.75, 1 and 0.5 for AA, Aa and aa. What is the equilibrium frequency of A?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: Heterozygote advantage and \(\hat{q}\)}
+\par\smallskip\noindent\begin{tabularx}{\linewidth}{@{}YYYY@{}}
+\makebox[1.9em][l]{\textbf{(A)}}\textbf{0.667}\ \(\checkmark\) & \makebox[1.9em][l]{(B)}0.333 & \makebox[1.9em][l]{(C)}0.500 & \makebox[1.9em][l]{(D)}0.250 \\
+\end{tabularx}
+\keyans{\(s_1\) = 0.25 for AA and \(s_2\) = 0.5 for aa. \(\hat{q}\) for a = 0.25/0.75 = 0.333, so \(\hat{p}\) for A = 0.667. The question asked for A. The trap is answering \(\hat{q}\).}
+\needspace{14\baselineskip}
+\item In Gabon \(s_1\) = 0.121 and \(s_2\) = 1. A vaccine cuts \(s_1\) to 0.06. What is the new \(\hat{q}\), and which way does HbS move from 0.105?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: Heterozygote advantage and \(\hat{q}\)}
+\par\smallskip\noindent\begin{tabularx}{\linewidth}{@{}YY@{}}
+\makebox[1.9em][l]{(A)}0.057, and HbS rises & \makebox[1.9em][l]{(B)}0.108, and HbS stays \\[3pt]
+\makebox[1.9em][l]{\textbf{(C)}}\textbf{0.057, and HbS falls}\ \(\checkmark\) & \makebox[1.9em][l]{(D)}0.943, and HbS rises \\
+\end{tabularx}
+\keyans{\(\hat{q}\) = 0.06/1.06 = 0.057. HbS is above its new equilibrium, so it falls. Less malaria means less heterozygote advantage, which means less reason to carry HbS.}
+\needspace{14\baselineskip}
+\item Wolves have relative fitnesses 0.75, 1 and 0.5. B2 is currently at 0.5. Over the next generations B2 will
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: Heterozygote advantage and \(\hat{q}\)}
+\par\smallskip\noindent\begin{tabularx}{\linewidth}{@{}YY@{}}
+\makebox[1.9em][l]{\textbf{(A)}}\textbf{fall toward 0.333}\ \(\checkmark\) & \makebox[1.9em][l]{(B)}rise toward 0.667 \\[3pt]
+\makebox[1.9em][l]{(C)}stay at 0.5 & \makebox[1.9em][l]{(D)}fall to 0 \\
+\end{tabularx}
+\keyans{\(\hat{q}\) = 0.25/0.75 = 0.333. At 0.5 B2 is above its equilibrium, so too many B2 copies land in the weak B2B2 homozygote and it falls back to \(\hat{q}\).}
+\needspace{14\baselineskip}
+\item In the Problem Set 12 form, AA = 1.2, Aa = 1, aa = 1.4. The frequency of a is 0.4. What happens to a?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: Heterozygote disadvantage and stability}
+\par\smallskip\noindent\begin{tabularx}{\linewidth}{@{}YY@{}}
+\makebox[1.9em][l]{(A)}It falls to 0 & \makebox[1.9em][l]{(B)}It moves to 0.333 and stays \\[3pt]
+\makebox[1.9em][l]{(C)}It stays at 0.4 & \makebox[1.9em][l]{\textbf{(D)}}\textbf{It rises to fixation}\ \(\checkmark\) \\
+\end{tabularx}
+\keyans{\(s_1\) = 0.2 and \(s_2\) = 0.4, so the unstable point is \(q\) = 0.2/0.6 = 0.333. At 0.4, a is above the point, so it runs away upward to 1.}
+\needspace{14\baselineskip}
+\item In a malaria-free country, HbS/HbS still has low fitness and heterozygotes gain nothing. What type of selection now acts on HbS?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: Types of selection}
+\par\smallskip\noindent\begin{tabularx}{\linewidth}{@{}YY@{}}
+\makebox[1.9em][l]{(A)}Balancing & \makebox[1.9em][l]{\textbf{(B)}}\textbf{Negative (purifying)}\ \(\checkmark\) \\[3pt]
+\makebox[1.9em][l]{(C)}Positive & \makebox[1.9em][l]{(D)}Disruptive \\
+\end{tabularx}
+\keyans{Without the heterozygote advantage only the removal through HbS/HbS remains. The same allele is balanced in one place and purified in another.}
+\needspace{14\baselineskip}
+\item Bacteria with higher antibiotic tolerance survive each treatment, and the population's average tolerance climbs. On the trait this is directional selection. On a resistance allele it is
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: Types of selection}
+\par\smallskip\noindent\begin{tabularx}{\linewidth}{@{}YY@{}}
+\makebox[1.9em][l]{(A)}balancing selection & \makebox[1.9em][l]{\textbf{(B)}}\textbf{positive selection}\ \(\checkmark\) \\[3pt]
+\makebox[1.9em][l]{(C)}stabilizing selection & \makebox[1.9em][l]{(D)}negative selection \\
+\end{tabularx}
+\keyans{One event, two descriptions. The trait shifts one way, and the allele that causes the shift rises toward fixation.}
+\needspace{14\baselineskip}
+\item CCR5. Relative fitness of WT/WT and WT/\(\Delta\)32 is 0.84, and of \(\Delta\)32/\(\Delta\)32 is 1. \(\Delta\)32 has frequency 0.10. What is \(q\)?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: Human cases and Darwin}
+\par\smallskip\noindent\begin{tabularx}{\linewidth}{@{}YY@{}}
+\makebox[1.9em][l]{(A)}0.10, \(\Delta\)32 & \makebox[1.9em][l]{(B)}0.16, \(s\) \\[3pt]
+\makebox[1.9em][l]{(C)}0.84, the relative fitness & \makebox[1.9em][l]{\textbf{(D)}}\textbf{0.90, the wild type}\ \(\checkmark\) \\
+\end{tabularx}
+\keyans{The wild type is selected against, and one WT copy is enough to be susceptible, so WT is the dominant selected-against allele. \(q\) = freq(WT) = 0.90.}
+\needspace{14\baselineskip}
+\item Lactase persistence is dominant and favored. When herding first spread, was \(s\) for non-persistent people likely higher or lower than today's estimate?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: Human cases and Darwin}
+\par\smallskip
+\begin{enumerate}[label={}, leftmargin=2.4em, labelwidth=0pt, itemsep=2pt, topsep=0pt]
+\item \hspace*{-2.4em}\makebox[2.4em][l]{\textbf{(A)}}\textbf{Higher, because milk was a large share of food and failing to digest it cost more}\ \(\checkmark\)
+\item \hspace*{-2.4em}\makebox[2.4em][l]{(B)}Lower, because milk was rare
+\item \hspace*{-2.4em}\makebox[2.4em][l]{(C)}The same, \(s\) is fixed for a gene
+\item \hspace*{-2.4em}\makebox[2.4em][l]{(D)}Zero, because lactase persistence is dominant
+\end{enumerate}
+\keyans{\(s\) describes how much worse a genotype does in a particular environment. The more a diet depends on milk, the larger the cost of not digesting it. Session 24 question 3E.}
+\needspace{14\baselineskip}
+\item Which statement is the inference in Darwin's argument rather than a premise?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: Human cases and Darwin}
+\par\smallskip
+\begin{enumerate}[label={}, leftmargin=2.4em, labelwidth=0pt, itemsep=2pt, topsep=0pt]
+\item \hspace*{-2.4em}\makebox[2.4em][l]{(A)}More offspring are produced than survive
+\item \hspace*{-2.4em}\makebox[2.4em][l]{(B)}Organisms differ in survival and reproduction
+\item \hspace*{-2.4em}\makebox[2.4em][l]{\textbf{(C)}}\textbf{Types that survive and reproduce better become more frequent in the next generation}\ \(\checkmark\)
+\item \hspace*{-2.4em}\makebox[2.4em][l]{(D)}Some differences are heritable
+\end{enumerate}
+\keyans{The three premises are things you observe. The inference follows from them by logic alone.}
+\needspace{14\baselineskip}
+\item Ferrets. Dark (\(F^{+}\)) is dominant to light. You count 84 dark and 16 light. What fraction of all ferrets are heterozygous carriers?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: Counts or Hardy-Weinberg}
+\par\smallskip\noindent\begin{tabularx}{\linewidth}{@{}YYYY@{}}
+\makebox[1.9em][l]{(A)}0.84 & \makebox[1.9em][l]{(B)}0.16 & \makebox[1.9em][l]{(C)}0.40 & \makebox[1.9em][l]{\textbf{(D)}}\textbf{0.48}\ \(\checkmark\) \\
+\end{tabularx}
+\keyans{Dark hides two genotypes, so you must assume Hardy-Weinberg. \(q^2\) = 16/100 = 0.16, \(q\) = 0.4, \(p\) = 0.6, and \(2pq\) = 0.48. The 0.40 is \(q\), an allele frequency.}
+\needspace{14\baselineskip}
+\item A question gives absolute fitnesses 6, 4 and 2. A classmate first converts them to 1, 0.67 and 0.33. How does that change \(q'\) from general equation \#1?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: General equation and mean fitness}
+\par\smallskip\noindent\begin{tabularx}{\linewidth}{@{}YY@{}}
+\makebox[1.9em][l]{(A)}\(q'\) becomes 3 times larger & \makebox[1.9em][l]{(B)}\(q'\) becomes 3 times smaller \\[3pt]
+\makebox[1.9em][l]{\textbf{(C)}}\textbf{Not at all}\ \(\checkmark\) & \makebox[1.9em][l]{(D)}It changes the sign of \(\Delta q\) \\
+\end{tabularx}
+\keyans{Every term on top and the \(\overline{W}\) on the bottom are divided by the same 6, so it cancels. Problem Set 12 question 7c says either works.}
+\needspace{14\baselineskip}
+\item Two equal-sized populations are followed by drift for 10 generations and for 50 generations. Which histogram of change is wider?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: Drift (Deme lab)}
+\par\smallskip
+\begin{enumerate}[label={}, leftmargin=2.4em, labelwidth=0pt, itemsep=2pt, topsep=0pt]
+\item \hspace*{-2.4em}\makebox[2.4em][l]{(A)}10 generations
+\item \hspace*{-2.4em}\makebox[2.4em][l]{\textbf{(B)}}\textbf{50 generations}\ \(\checkmark\)
+\item \hspace*{-2.4em}\makebox[2.4em][l]{(C)}They are the same
+\item \hspace*{-2.4em}\makebox[2.4em][l]{(D)}It depends on the starting frequency only
+\end{enumerate}
+\keyans{Each generation adds another random step, so the spread grows over time. That is why the quiz fixed the number of generations when comparing population sizes.}
+\needspace{14\baselineskip}
+\item A mule lives 40 years, never gets sick and is very strong. What is its fitness?
+\nopagebreak\par\noindent{\footnotesize\itshape Topic: Fitness, \(w\), \(W\) and \(s\)}
+\par\smallskip
+\begin{enumerate}[label={}, leftmargin=2.4em, labelwidth=0pt, itemsep=2pt, topsep=0pt]
+\item \hspace*{-2.4em}\makebox[2.4em][l]{\textbf{(A)}}\textbf{Zero}\ \(\checkmark\)
+\item \hspace*{-2.4em}\makebox[2.4em][l]{(B)}Very high, because it survives well
+\item \hspace*{-2.4em}\makebox[2.4em][l]{(C)}Undefined
+\item \hspace*{-2.4em}\makebox[2.4em][l]{(D)}Equal to its viability
+\end{enumerate}
+\keyans{Mules are sterile, so fecundity is 0 and viability times fecundity is 0. Fitness counts offspring, not health.}
+\end{enumerate}
+
+\newpage
+\begin{center}
+  {\Large\bfseries Formula Sheet}\\[3pt]
+  {\small\itshape Use this page only if your exam provides a formula sheet.}\\[2pt]
+  \rule{\textwidth}{0.4pt}
+\end{center}
+
+\subsection*{Fitness}
+\begin{center}\renewcommand{\arraystretch}{2.1}
+\begin{tabular}{r@{\;}l@{\qquad}l}
+  \(w\) & \(=\ \text{viability} \times \text{fecundity}\) & absolute fitness, offspring left per zygote\\
+  \(W\) & \(=\ w / w_{\max}\) & relative fitness\\
+  \(s\) & \(=\ 1 - W\) & selection coefficient
+\end{tabular}\end{center}
+
+\subsection*{Mean fitness and the general equation}
+\begin{align*}
+  \overline{W} &= f(AA)\,W_{AA} + f(Aa)\,W_{Aa} + f(aa)\,W_{aa}\\[4pt]
+  q' &= \frac{\tfrac{1}{2}\,f(Aa)\,W_{Aa} + f(aa)\,W_{aa}}{\overline{W}}, \qquad \Delta q = q' - q
+\end{align*}
+Under Hardy--Weinberg, \(f(AA)=p^2\), \(f(Aa)=2pq\), \(f(aa)=q^2\). With counted individuals that selection acts on directly, use the counted frequencies.
+
+\subsection*{Average excess}
+\begin{align*}
+  \alpha_a &= q\,W_{aa} + p\,W_{Aa} - \overline{W}, & \Delta q &= \frac{q}{\overline{W}}\,\alpha_a\\[4pt]
+  \alpha_A &= p\,W_{AA} + q\,W_{Aa} - \overline{W}, & \Delta p &= \frac{p}{\overline{W}}\,\alpha_A
+\end{align*}
+Requires Hardy--Weinberg genotype frequencies.
+
+\subsection*{Special models (\(q\) is always the allele selected against)}
+\begin{align*}
+  \text{Against the recessive:}\quad \Delta q &= \frac{-s\,p\,q^2}{1 - s\,q^2}\\[4pt]
+  \text{Against the dominant:}\quad \Delta q &= \frac{-s\,p^2 q}{1 - 2sq + sq^2}
+\end{align*}
+
+\subsection*{Heterozygote advantage or disadvantage}
+\[
+  \hat{q} = \frac{s_1}{s_1 + s_2}
+\]
+with \(s_1\) for the \(p\) homozygote and \(s_2\) for the \(q\) homozygote. The equilibrium is stable under heterozygote advantage and unstable under heterozygote disadvantage.
+
+\label{LastPage}
+\end{document}

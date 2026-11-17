@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Natural Selection Exam Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a quiet academic index, like the cover page of a printed packet. Exams are listed as rows, each opening into a stack of real typeset pages. */
+:root{
+  --paper:#f6f5f2;
+  --sheet:#ffffff;
+  --ink:#1b1c1f;
+  --muted:#5d6068;
+  --rule:#d9d7d1;
+  --accent:#a51417;
+  --display:"Newsreader","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --body:"Newsreader","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#16171a;--sheet:#202226;--ink:#ecebe7;--muted:#a3a6ad;--rule:#34363c;--accent:#e2585a;color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#16171a;--sheet:#202226;--ink:#ecebe7;--muted:#a3a6ad;--rule:#34363c;--accent:#e2585a;color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6;-webkit-text-size-adjust:100%}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:52rem;margin:0 auto;padding:0 20px}
+header.top{border-bottom:1px solid var(--rule)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding-top:14px;padding-bottom:12px;font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:var(--muted);text-transform:uppercase}
+.hero{padding:3.2rem 0 2rem}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(2.2rem,6vw,3.3rem);line-height:1.08;letter-spacing:-.012em;margin:0 0 1rem;text-wrap:balance}
+.lede{color:var(--muted);max-width:38rem;margin:0}
+h2{font-family:var(--display);font-weight:600;font-size:1.5rem;margin:0 0 .25rem;text-wrap:balance}
+.sect{padding:1.6rem 0 1rem}
+.sect>.lab{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 .9rem}
+.exams{border-top:2px solid var(--ink)}
+.row{display:grid;grid-template-columns:4.2rem 1fr auto;gap:1.2rem;align-items:start;padding:1.35rem 0;border-bottom:1px solid var(--rule)}
+.row .id{font-family:var(--display);font-weight:700;font-size:2.1rem;line-height:1}
+.row .lvl{font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);margin:0 0 .2rem}
+.row h3{font-family:var(--display);font-weight:600;font-size:1.25rem;margin:0 0 .3rem}
+.row p{margin:0;color:var(--muted);font-size:1rem;max-width:30rem}
+.row .meta{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.5rem}
+.acts{display:flex;flex-direction:column;gap:.45rem;align-items:stretch;min-width:9.5rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;min-height:40px;padding:.45rem .9rem;border:1px solid var(--ink);border-radius:3px;background:transparent;color:var(--ink);font:500 .78rem/1.2 var(--mono);letter-spacing:.02em;text-decoration:none;cursor:pointer}
+.btn.pri{background:var(--ink);color:var(--paper)}
+.btn:hover{border-color:var(--accent)}
+.btn.pri:hover{background:var(--accent);border-color:var(--accent)}
+.lesson{display:grid;grid-template-columns:1fr auto;gap:1.2rem;align-items:center;padding:1.3rem 1.4rem;background:var(--sheet);border:1px solid var(--rule);border-left:3px solid var(--accent)}
+.lesson h3{font-family:var(--display);font-style:italic;font-weight:400;font-size:1.4rem;margin:0 0 .3rem}
+.lesson p{margin:0;color:var(--muted);font-size:1rem}
+.how{columns:2 18rem;column-gap:2rem;font-size:1rem;color:var(--muted)}
+.how p{margin:0 0 .8rem;break-inside:avoid}
+.how b{color:var(--ink);font-weight:600}
+footer{border-top:1px solid var(--rule);margin-top:2.5rem;padding:1.2rem 0 2.5rem;font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+
+/* viewer */
+.viewbar{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--rule)}
+.viewbar .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;padding-top:10px;padding-bottom:10px}
+.viewbar .back{font-family:var(--mono);font-size:.78rem;text-decoration:none;color:var(--ink)}
+.viewbar .ttl{flex:1;min-width:10rem;font-family:var(--display);font-weight:600;font-size:1.1rem}
+.tabs{display:inline-flex;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.tabs button{border:0;background:transparent;color:var(--ink);font:500 .78rem/1 var(--mono);padding:.65rem .9rem;cursor:pointer;min-height:38px}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+.vacts{display:flex;gap:.5rem;flex-wrap:wrap}
+.pages{max-width:52rem;margin:0 auto;padding:1.6rem 16px 3rem;display:grid;gap:1.4rem}
+.pg{background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.08),0 8px 24px rgba(0,0,0,.08);border:1px solid var(--rule)}
+.pg img{display:block;width:100%;height:auto}
+.pgno{font-family:var(--mono);font-size:.68rem;color:var(--muted);text-align:center;margin-top:-.9rem}
+.note{font-family:var(--mono);font-size:.72rem;color:var(--muted);text-align:center;margin:0}
+.lessonframe{display:block;width:100%;height:calc(100dvh - 62px);border:0;background:var(--paper)}
+[hidden]{display:none!important}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:var(--paper);font:500 .78rem var(--mono);padding:.6rem 1rem;border-radius:3px;z-index:20}
+@media (max-width:620px){
+  .row{grid-template-columns:3rem 1fr}
+  .row .acts{grid-column:1/-1;flex-direction:row;flex-wrap:wrap}
+  .row .acts .btn{flex:1 1 8rem}
+  .row .id{font-size:1.7rem}
+  .lesson{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+
+<div id="home">
+<header class="top"><div class="wrap"><span>BIO 2970 · Washington University in St. Louis</span><span>Fall 2026</span></div></header>
+<main class="wrap">
+  <section class="hero">
+    <h1>Natural Selection Exam Hub</h1>
+    <p class="lede">Three practice exams on fitness and selection from Lectures 23 and 24, each typeset as a printable PDF with its own answer sheet and formula page. Answer keys are separate files with every answer explained. The interactive lesson that teaches the unit is at the bottom.</p>
+  </section>
+
+  <section class="sect">
+    <p class="lab">The exams · 24 questions each</p>
+    <div class="exams">
+      <div class="row">
+        <div class="id">S1</div>
+        <div>
+          <p class="lvl">Level 1 · Quiz difficulty</p>
+          <h3>Practice Exam S1</h3>
+          <p>Every kind of question last year's quiz asked, plus the definitions and model choices underneath them.</p>
+          <p class="meta">Exam 6 pages · Key 8 pages</p>
+        </div>
+        <div class="acts">
+          <a class="btn pri" href="#s1">Open exam</a>
+          <a class="btn" href="#s1-key">Answer key</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="id">S2</div>
+        <div>
+          <p class="lvl">Level 2 · Harder and multi-step</p>
+          <h3>Practice Exam S2</h3>
+          <p>Raw counts, survival and fecundity together, the generation after selection, and which allele is p.</p>
+          <p class="meta">Exam 7 pages · Key 8 pages</p>
+        </div>
+        <div class="acts">
+          <a class="btn pri" href="#s2">Open exam</a>
+          <a class="btn" href="#s2-key">Answer key</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="id">S3</div>
+        <div>
+          <p class="lvl">Level 3 · Hardest</p>
+          <h3>Practice Exam S3</h3>
+          <p>Working backwards from an answer, populations that are not in Hardy-Weinberg, and the reasons behind the formulas.</p>
+          <p class="meta">Exam 7 pages · Key 8 pages</p>
+        </div>
+        <div class="acts">
+          <a class="btn pri" href="#s3">Open exam</a>
+          <a class="btn" href="#s3-key">Answer key</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect">
+    <p class="lab">How to use them</p>
+    <div class="how">
+      <p><b>Take them in order.</b> S1 is quiz level, S2 adds multi-step calculations, and S3 asks you to work backwards. No question repeats across the three.</p>
+      <p><b>Print or work on a tablet.</b> Each exam ends with a bubble answer sheet and a formula page. Leave the formula page closed if your real exam does not give you one.</p>
+      <p><b>Grade with the key, then read it.</b> Every key opens with the answer grid and a topic table, then explains each answer and why the tempting wrong choices fail.</p>
+      <p><b>Use your misses.</b> The topic table in each key shows which skill a missed question tests, so you know what to review in the lesson.</p>
+    </div>
+  </section>
+
+  <section class="sect">
+    <p class="lab">The lesson</p>
+    <div class="lesson">
+      <div>
+        <h3>The allele that should have vanished</h3>
+        <p>An interactive walk through the whole unit, from Darwin's argument and the Daphne Major finches to why sickle cell stays near 10 percent in Gabon. Quizzes and step-through figures throughout.</p>
+      </div>
+      <a class="btn pri" href="#lesson">Open lesson</a>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">Typeset in LaTeX. Lectures 23 and 24, Sessions 23 and 24, Problem Set 12, Study Guide 12.</div></footer>
+</div>
+
+<div id="viewer" hidden>
+  <div class="viewbar"><div class="wrap">
+    <a class="back" href="#home">← All exams</a>
+    <span class="ttl" id="vttl"></span>
+    <div class="tabs" role="tablist">
+      <button type="button" role="tab" id="tabExam" aria-selected="true">Exam</button>
+      <button type="button" role="tab" id="tabKey" aria-selected="false">Answer key</button>
+    </div>
+    <div class="vacts">
+      <button type="button" class="btn pri" id="dl" hidden>Download PDF</button>
+      <a class="btn pri" id="dlink" href="#" download hidden>Download PDF</a>
+      <a class="btn" id="openpdf" href="#" target="_blank" rel="noopener">Open PDF</a>
+    </div>
+  </div></div>
+  <div class="pages" id="pages"></div>
+</div>
+
+<div id="lessonview" hidden>
+  <div class="viewbar"><div class="wrap">
+    <a class="back" href="#home">← All exams</a>
+    <span class="ttl">The allele that should have vanished</span>
+    <a class="btn" href="lesson.html" target="_blank" rel="noopener">Open full page</a>
+  </div></div>
+  <iframe class="lessonframe" id="lframe" title="The allele that should have vanished, interactive lesson"></iframe>
+</div>
+
+<script>
+(function(){
+  var EX = {
+    s1:{title:"Practice Exam S1", pages:6, keyPages:8},
+    s2:{title:"Practice Exam S2", pages:7, keyPages:8},
+    s3:{title:"Practice Exam S3", pages:7, keyPages:8}
+  };
+  var home=document.getElementById('home'), viewer=document.getElementById('viewer'), lv=document.getElementById('lessonview');
+  var pagesEl=document.getElementById('pages'), ttl=document.getElementById('vttl');
+  var tabExam=document.getElementById('tabExam'), tabKey=document.getElementById('tabKey');
+  var dl=document.getElementById('dl'), openpdf=document.getElementById('openpdf'), dlink=document.getElementById('dlink');
+  var inClaude=!!(window.claude && typeof window.claude.use==='function');
+  var cur=null, downloads=null;
+
+  function pdfName(k,key){return 'BIO2970_Selection_PracticeExam_'+k.toUpperCase()+(key?'_KEY':'')+'.pdf';}
+
+  function show(k,key){
+    var e=EX[k]; cur={k:k,key:key};
+    home.hidden=true; lv.hidden=true; viewer.hidden=false;
+    ttl.textContent=e.title+(key?' · Answer key':'');
+    tabExam.setAttribute('aria-selected',String(!key));
+    tabKey.setAttribute('aria-selected',String(!!key));
+    openpdf.href='pdf/'+pdfName(k,key);
+    dlink.href=openpdf.href; dlink.hidden=inClaude;
+    dl.hidden=!downloads;
+    var n=key?e.keyPages:e.pages, pre=k+(key?'_key':''), html='';
+    for(var i=1;i<=n;i++){
+      html+='<div class="pg"><img src="pages/'+pre+'-'+i+'.png" alt="'+e.title+(key?' answer key':'')+', page '+i+' of '+n+'" loading="'+(i<3?'eager':'lazy')+'" width="1020" height="1320"></div>';
+      html+='<p class="pgno">'+i+' / '+n+'</p>';
+    }
+    pagesEl.innerHTML=html;
+    window.scrollTo(0,0);
+  }
+  function route(){
+    var h=(location.hash||'').replace('#','');
+    var m=h.match(/^(s[123])(-key)?$/);
+    if(m){show(m[1],!!m[2]);return;}
+    if(h==='lesson'){
+      home.hidden=true; viewer.hidden=true; lv.hidden=false;
+      var f=document.getElementById('lframe'); if(!f.getAttribute('src')) f.setAttribute('src','lesson.html');
+      window.scrollTo(0,0); return;
+    }
+    viewer.hidden=true; lv.hidden=true; home.hidden=false; cur=null;
+  }
+  tabExam.addEventListener('click',function(){ if(cur) location.hash=cur.k; });
+  tabKey.addEventListener('click',function(){ if(cur) location.hash=cur.k+'-key'; });
+
+  function toast(t){var d=document.createElement('div');d.className='toast';d.textContent=t;document.body.appendChild(d);setTimeout(function(){d.remove();},2600);}
+  dl.addEventListener('click',function(){
+    if(!downloads||!cur) return;
+    var name=pdfName(cur.k,cur.key);
+    fetch('pdf/'+name).then(function(r){ if(!r.ok) throw new Error('fetch'); return r.blob(); })
+      .then(function(b){ return downloads.save({filename:name,data:b}); })
+      .catch(function(){ toast('Download did not finish. Use Open PDF instead.'); });
+  });
+
+  window.addEventListener('hashchange',route);
+  route();
+  try{
+    if(window.claude && typeof window.claude.use==='function'){
+      window.claude.use('downloads').then(function(d){ downloads=d; if(cur) dl.hidden=!d; }).catch(function(){});
+    }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
